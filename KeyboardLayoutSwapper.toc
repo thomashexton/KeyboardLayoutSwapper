@@ -1,0 +1,8 @@
+## Interface: 16001
+## Title: KeyboardLayoutSwapper
+## Notes: Move keybinds onto the same physical keys for the keyboard layout you choose
+## Author: Thomas Hexton
+## Version: 1.0.0
+## SavedVariables: KeyboardLayoutSwapperDB, LayoutBindsDB
+
+KeyboardLayoutSwapper.lua
