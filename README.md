@@ -19,12 +19,12 @@ WowUpHub: repo name matches the addon folder name (`KeyboardLayoutSwapper`).
 ## Usage
 
 - Minimap button: click to cycle layouts in your configured list
-- Slash commands: `/kls`, `/ls`, `/lb`, `/keyboardlayoutswapper`
-  - `/ls` — toggle / cycle
-  - `/ls qwerty` (or `colemak-dh`, `colemak-classic`, `dvorak`) — switch to a layout
-  - `/ls use qwerty dvorak` — set which layouts the click cycle uses
-  - `/ls stamp qwerty` — mark the current layout without moving keys
-  - `/ls auto colemak-dh` — prefer a layout on this computer at login (`/ls auto off` to disable)
+- Slash commands: `/kls`, `/keyboardlayoutswapper`
+  - `/kls` — toggle / cycle
+  - `/kls qwerty` (or `colemak-dh`, `colemak-classic`, `dvorak`) — switch to a layout
+  - `/kls use qwerty dvorak` — set which layouts the click cycle uses
+  - `/kls stamp qwerty` — mark the current layout without moving keys
+  - `/kls auto colemak-dh` — prefer a layout on this computer at login (`/kls auto off` to disable)
 
 ## Author
 

@@ -66,7 +66,7 @@ local COMMAND_FOR = {
 	colemak = "KEYBOARDLAYOUTSWAPPER_COLEMAK",
 	dvorak = "KEYBOARDLAYOUTSWAPPER_DVORAK",
 }
--- colemak and c stay Colemak-DH so the old /ls colemak command does not
+-- colemak and c stay Colemak-DH so the old /kls colemak command does not
 -- jump to classic Colemak. Classic Colemak is colemak-classic.
 local ALIAS = {
 	q = "qwerty",
@@ -463,7 +463,7 @@ local function StampHint()
 	end
 	local hint = "I can't tell which keyboard these keys are for. " .. table.concat(parts, ". ") .. "."
 	if ambiguous then
-		hint = hint .. " Those share Strafe Right, so name the layout: /ls stamp " .. TOKEN[db.use[1]]
+		hint = hint .. " Those share Strafe Right, so name the layout: /kls stamp " .. TOKEN[db.use[1]]
 	end
 	return hint
 end
@@ -747,7 +747,7 @@ local function Reconcile()
 		else
 			Say(StampHint())
 		end
-		Say("Click cycles " .. CycleText() .. ". /ls use qwerty dvorak changes the list.")
+		Say("Click cycles " .. CycleText() .. ". /kls use qwerty dvorak changes the list.")
 	end
 end
 
@@ -761,7 +761,7 @@ local function SetAuto(prefer)
 	end
 	local id = Resolve(prefer)
 	if not id then
-		Say("Usage: /ls auto qwerty, /ls auto colemak-dh, /ls auto dvorak, or /ls auto off.")
+		Say("Usage: /kls auto qwerty, /kls auto colemak-dh, /kls auto dvorak, or /kls auto off.")
 		return
 	end
 	db.auto = true
@@ -778,7 +778,7 @@ end
 local function SetUse(words)
 	NormalizeDB()
 	if #words < 2 then
-		Say("Click cycles " .. CycleText() .. ". Example: /ls use qwerty dvorak")
+		Say("Click cycles " .. CycleText() .. ". Example: /kls use qwerty dvorak")
 		return
 	end
 	local clean = {}
@@ -795,7 +795,7 @@ local function SetUse(words)
 		end
 	end
 	if #clean < 2 then
-		Say("Name two different layouts. Example: /ls use qwerty dvorak")
+		Say("Name two different layouts. Example: /kls use qwerty dvorak")
 		return
 	end
 	db.use = clean
@@ -805,10 +805,6 @@ end
 
 SLASH_KEYBOARDLAYOUTSWAPPER1 = "/keyboardlayoutswapper"
 SLASH_KEYBOARDLAYOUTSWAPPER2 = "/kls"
-SLASH_KEYBOARDLAYOUTSWAPPER3 = "/layoutbinds"
-SLASH_KEYBOARDLAYOUTSWAPPER4 = "/lb"
-SLASH_KEYBOARDLAYOUTSWAPPER5 = "/layoutswap"
-SLASH_KEYBOARDLAYOUTSWAPPER6 = "/ls"
 SlashCmdList.KEYBOARDLAYOUTSWAPPER = function(message)
 	NormalizeDB()
 	local words = {}
@@ -834,7 +830,7 @@ SlashCmdList.KEYBOARDLAYOUTSWAPPER = function(message)
 	elseif command == "stamp" then
 		local id = Resolve(words[2] or "")
 		if not id then
-			Say("Usage: /ls stamp qwerty, /ls stamp colemak-dh, /ls stamp colemak-classic, or /ls stamp dvorak.")
+			Say("Usage: /kls stamp qwerty, /kls stamp colemak-dh, /kls stamp colemak-classic, or /kls stamp dvorak.")
 		elseif InCombatLockdown() then
 			Say("Cannot swap in combat.")
 		else
@@ -850,7 +846,7 @@ SlashCmdList.KEYBOARDLAYOUTSWAPPER = function(message)
 		end
 	else
 		local layout = CurrentLayout()
-		Say("Now " .. (LABEL[layout] or "unknown") .. ". Click cycles " .. CycleText() .. ". /ls use qwerty dvorak. " .. LayoutHelp() .. ".")
+		Say("Now " .. (LABEL[layout] or "unknown") .. ". Click cycles " .. CycleText() .. ". /kls use qwerty dvorak. " .. LayoutHelp() .. ".")
 	end
 end
 
